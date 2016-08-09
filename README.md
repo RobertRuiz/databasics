@@ -32,9 +32,17 @@ NOTE: You may want to keep a backup of the `store.sqlite3` file in case you dama
       Awesome Granite Pants      9790      
       Small Wooden Computer      9859      
       Small   Cotton Gloves      9984
-      
-- [ ] What's the cheapest book? (Does that change for "category is exactly 'book'" versus "category contains 'book'"?)
 
+- [ ] What's the cheapest book? (Does that change for "category is exactly 'book'" versus "category contains       'book'"?)
+      select title, price from items order by price;
+      title                      price     
+      -------------------------  -------------------  
+      Incredible Concrete Chair  121
+
+      select title, price from items where category = "Books";
+      title                      price     
+      -------------------------  -------------------
+      Ergonomic Granite Cha      1496
 
 - [ ] Who lives at "6439 Zetta Hills, Willmouth, WY"? Do they have another address?
 
