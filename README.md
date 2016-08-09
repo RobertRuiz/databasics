@@ -24,10 +24,6 @@ NOTE: You may want to keep a backup of the `store.sqlite3` file in case you dama
       <!-- select count(*) from users; -->
       50
 
-      update movies
-      set genre = 'Romance', duration = 70
-      where id = 3 or id = 5;
-
 - [ ] What are the 5 most expensive items?
       select title, price
       from items
@@ -85,7 +81,19 @@ Corrine     Little      6439 Zetta Hills  Willmouth   WY          15029
 Corrine     Little      54369 Wolff Forg  Lake Bryon  CA          31587
 
 - [ ] Correct Virginie Mitchell's address to "New York, NY, 10108".
+select addresses.user_id
+from users, addresses
+where users.id = addresses.user_id
+and users.first_name = 'Virginie'
+and users.last_name = 'Mitchell';
 
+update addresses
+set city = 'New York',
+    state = 'NY',
+    zip = 10108
+where user_id = 39;
+
+select city, state, zip from addresses where user_id = 39;
 
 - [ ] How much would it cost to buy one of each tool?
 
