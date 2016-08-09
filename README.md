@@ -20,32 +20,55 @@ NOTE: You may want to keep a backup of the `store.sqlite3` file in case you dama
 ## Explorer Mode
 
 - [ ] How many users are there?
-      select * from users;
+      Linter prevents verbatim code - enclosing in comments
+      <!-- select count(*) from users; -->
       50
 
+      update movies
+      set genre = 'Romance', duration = 70
+      where id = 3 or id = 5;
+
 - [ ] What are the 5 most expensive items?
-      select title, price from items order by price;
-      title                      price     
-      -------------------------  -------------------  
-      Ergonomic Steel Car        9341      
-      Sleek Wooden Hat           9390      
-      Awesome Granite Pants      9790      
-      Small Wooden Computer      9859      
-      Small   Cotton Gloves      9984
+      select title, price
+      from items
+      order by price desc
+      limit 5;
+
+      title                price     
+      -------------------  ----------
+      Small Cotton Gloves  9984      
+      Small Wooden Comput   9859      
+      Awesome Granite Pan  9790      
+      Sleek Wooden Hat     9390      
+      Ergonomic Steel Car  9341
 
 - [ ] What's the cheapest book? (Does that change for "category is exactly 'book'" versus "category contains       'book'"?)
-      select title, price from items order by price;
+      select title, price
+      from items
+      where category = "Books"
+      order by price
+      limit 1;
+
       title                      price     
       -------------------------  -------------------  
       Incredible Concrete Chair  121
 
-      select title, price from items where category = "Books";
+      select title, price
+      from items
+      where category = "Books"
+      order by price
+      limit 1;
+
       title                      price     
       -------------------------  -------------------
       Ergonomic Granite Cha      1496
 
 - [ ] Who lives at "6439 Zetta Hills, Willmouth, WY"? Do they have another address?
-
+      select name
+      from addresses
+      where street = "6439 Zetta Hills"
+      and city = "Willmouth"
+      and state = "WY"
 
 - [ ] Correct Virginie Mitchell's address to "New York, NY, 10108".
 
