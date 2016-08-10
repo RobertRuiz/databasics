@@ -96,13 +96,22 @@ where user_id = 39;
 select city, state, zip from addresses where user_id = 39;
 
 - [ ] How much would it cost to buy one of each tool?
-
+select sum(price)
+from items
+where category = 'Tools';
+7383
 
 - [ ] How many total items did we sell?
-
+select sum(quantity)
+from orders;
+ 2125
 
 - [ ] How much was spent on books?
-
+select sum(orders.quantity*items.price)
+from orders, items
+where items.id = orders.item_id
+and items.category = 'Books';
+420566
 
 - [ ] Simulate buying an item by inserting a User for yourself and an Order for that User.
 
