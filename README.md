@@ -114,7 +114,11 @@ and items.category = 'Books';
 420566
 
 - [ ] Simulate buying an item by inserting a User for yourself and an Order for that User.
+insert into users("id", "first_name", "last_name", "email" )
+values (51, "Robert", "Ruiz", "Robert.S.Ruiz@gmail.com");
 
+insert into orders("id", "user_id", "item_id", "quantity", "created_at")
+values (1001, 999, 51, 1, 2015-02-09);
 
 ## Adventure Mode
 
